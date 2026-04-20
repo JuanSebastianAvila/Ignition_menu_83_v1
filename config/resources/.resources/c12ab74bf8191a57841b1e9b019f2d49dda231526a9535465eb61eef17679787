@@ -10,7 +10,7 @@
       "name": "ENABLED"
     },
     {
-      "completed": false,
+      "completed": true,
       "name": "DESIGNER"
     },
     {

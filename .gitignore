@@ -24,3 +24,5 @@
 # Alarm history files
 **/.alarms_*
 
+config/resources/core/ignition/quickstart/config.json
+config/resources/core/ignition/quickstart/resource.json
