@@ -7,6 +7,7 @@
 **/jar-cache/
 *.tmp
 *.bak
+*.idb
 
 # Log files
 *.log
