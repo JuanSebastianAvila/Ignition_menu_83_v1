@@ -1,0 +1,25 @@
+# Database files
+**/db/
+**/metricsdb/
+
+
+# Cache and temporary files
+**/jar-cache/
+*.tmp
+*.bak
+
+# Log files
+*.log
+**/logs
+
+# Certificates and security
+**/certificates/
+**/keystore/
+
+# Backup and converted files
+**/conversion-report.txt
+**.digest.json
+
+# Alarm history files
+**/.alarms_*
+
