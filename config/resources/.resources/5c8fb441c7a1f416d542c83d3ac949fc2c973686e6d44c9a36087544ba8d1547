@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "uuid": "13be2bc9-1b4e-4957-9e3e-b296685eef5d",
+      "username": "sebas",
+      "schedule": "Always",
+      "password": "[795C1199]bc35d378623d7949bc34c33b62b7800127534a5ea6b1f543acc566757880790a",
+      "passwordDate": "20260420.102851761+0000",
+      "passwordHistory": [],
+      "createdDate": "20260420.102851759+0000",
+      "lastModifiedDate": "20260420.102851759+0000",
+      "roles": [
+        "df2e8f7a-b456-433d-8b1f-ad767a259ee3"
+      ],
+      "extraProps": [],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    }
+  ],
+  "roles": [
+    {
+      "uuid": "df2e8f7a-b456-433d-8b1f-ad767a259ee3",
+      "rolename": "Administrator",
+      "createdDate": "20260420.102851759+0000",
+      "lastModifiedDate": "20260420.102851759+0000"
+    }
+  ]
+}
