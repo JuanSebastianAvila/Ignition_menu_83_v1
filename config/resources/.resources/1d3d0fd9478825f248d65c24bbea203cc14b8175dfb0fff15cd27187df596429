@@ -4,5 +4,11 @@
     "name": "test_sebas",
     "defaultValue": 1,
     "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "test_sebas 1",
+    "defaultValue": 1,
+    "tagType": "AtomicTag"
   }
 ]
