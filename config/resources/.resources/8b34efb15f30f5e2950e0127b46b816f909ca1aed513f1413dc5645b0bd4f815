@@ -1,18 +1,24 @@
 [
   {
     "valueSource": "memory",
+    "name": "test_ste",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
     "name": "test_sebas 1",
     "defaultValue": 1,
     "tagType": "AtomicTag"
   },
   {
     "valueSource": "memory",
-    "name": "test_ste",
+    "name": "test_sebas",
+    "defaultValue": 1,
     "tagType": "AtomicTag"
   },
   {
     "valueSource": "memory",
-    "name": "test_sebas",
+    "name": "test_sebas 2",
     "defaultValue": 1,
     "tagType": "AtomicTag"
   }
