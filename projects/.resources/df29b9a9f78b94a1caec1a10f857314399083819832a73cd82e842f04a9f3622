@@ -3,5 +3,5 @@ def a():
 	
 
 def b():
-	print 'ciao'
+	print 'ciaoaaaa'
 	
