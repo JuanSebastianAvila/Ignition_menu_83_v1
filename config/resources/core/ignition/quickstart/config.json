@@ -1,5 +1,5 @@
 {
-  "finished": false,
+  "finished": true,
   "steps": [
     {
       "completed": true,
@@ -14,11 +14,11 @@
       "name": "DESIGNER"
     },
     {
-      "completed": false,
+      "completed": true,
       "name": "PROJECT"
     },
     {
-      "completed": false,
+      "completed": true,
       "name": "SESSION"
     }
   ]

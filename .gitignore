@@ -21,9 +21,12 @@
 **/conversion-report.txt
 **.digest.json
 
-# Alarm history files
+# Alarm history filess
 **/.alarms_*
 
 config/resources/core/ignition/quickstart/config.json
 config/resources/core/ignition/quickstart/resource.json
+
+
 ignition.conf
+
