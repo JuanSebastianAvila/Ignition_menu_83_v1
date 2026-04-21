@@ -6,3 +6,7 @@ def c():
 	y = 8
 	print x+y
 	
+
+def b():
+	print 'ciaoaaaa'
+	
