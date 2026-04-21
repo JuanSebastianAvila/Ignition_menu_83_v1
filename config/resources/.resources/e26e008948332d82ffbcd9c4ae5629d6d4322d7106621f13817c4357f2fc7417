@@ -1,0 +1,36 @@
+{
+  "connectURL": "jdbc:sqlserver://ign_git-db-1:1433",
+  "connectionProps": "databaseName\u003dDB_Main",
+  "connectionResetParams": "",
+  "defaultTransactionLevel": "DEFAULT",
+  "driver": "Microsoft SQLServer",
+  "evictionRate": -1,
+  "evictionTests": 3,
+  "evictionTime": 1800000,
+  "failoverMode": "STANDARD",
+  "failoverProfile": "",
+  "includeSchemaInTableName": false,
+  "password": {
+    "data": {
+      "ciphertext": "XGQvnCHq6DDCT11JnA",
+      "encrypted_key": "MZfPhm_ExSKj7JmNPI3FuqPIWYrB5-PIJzPYy8nn_8Vm45AxHHm_RQ",
+      "iv": "wP-PGqjl4OtqPN5m",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzc2Njg5NjA1LCJ6aXAiOiJERUYifQ",
+      "tag": "L2YMkl2cd4gvHuGDG3QMmA"
+    },
+    "type": "Embedded"
+  },
+  "poolInitSize": 0,
+  "poolMaxActive": 8,
+  "poolMaxIdle": 8,
+  "poolMaxWait": 5000,
+  "poolMinIdle": 0,
+  "slowQueryLogThreshold": 60000,
+  "testOnBorrow": true,
+  "testOnReturn": false,
+  "testWhileIdle": false,
+  "translator": "MSSQL",
+  "username": "sa",
+  "validationQuery": "SELECT 1",
+  "validationSleepTime": 10000
+}
