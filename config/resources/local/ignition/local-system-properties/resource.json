@@ -9,14 +9,8 @@
   "attributes": {
     "lastModification": {
       "actor": "unknown",
-<<<<<<< HEAD
-      "timestamp": "2026-04-21T15:40:26Z"
+      "timestamp": "2026-04-22T09:07:31Z"
     },
-    "lastModificationSignature": "7b5384cd96efc46720a403367dad496a6d0067075e4109a0783ba0291fdc4814"
-=======
-      "timestamp": "2026-04-21T15:15:54Z"
-    },
-    "lastModificationSignature": "92548857bd5ec332b5513189932c2858226e53d575790189c0e4851052ca243d"
->>>>>>> origin/Script_seb
+    "lastModificationSignature": "5321df03689d9ad0d6b1b82177e36f7981c785baae7f3d54b914d2e5963a94f4"
   }
 }
