@@ -25,7 +25,7 @@
 **/.alarms_*
 
 config/resources/core/ignition/quickstart/config.json
-config/resources/core/ignition/quickstart/resource.json
+#config/resources/core/ignition/quickstart/resource.json
 
 
 ignition.conf
