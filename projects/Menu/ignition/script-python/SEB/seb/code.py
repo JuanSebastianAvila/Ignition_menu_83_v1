@@ -7,5 +7,6 @@ def t2():
 def pipipipi():
 	print 'pkpokpo'
 	
-	
-	
+#####
+def func1():
+	return 'hola'
