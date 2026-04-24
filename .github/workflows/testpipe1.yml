@@ -1,0 +1,29 @@
+
+name: Auto PR and Merge
+
+on:
+  push:
+    branches:
+      - A
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Pull Request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Auto PR: Branch clear-project → no-projects`,
+              head: 'clear-project',        # source branch
+              base: 'no-projects',   # target branch  ← already set
+              body: 'Automatically created PR from branch clear-project to no-projects'
+            })
