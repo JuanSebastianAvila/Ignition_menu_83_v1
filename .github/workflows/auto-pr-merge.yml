@@ -8,7 +8,6 @@ on:
 jobs:
   auto-pr-merge:
     runs-on: ubuntu-latest
-    needs: []
     steps:
       - uses: actions/checkout@v3
 
@@ -20,21 +19,14 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
 
-      - name: Apri PR verso tbr_3
-        id: cpr
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: "script_ste"
-          destination_branch: "tbr_3"
-          pr_title: "Auto PR da script_ste"
-          pr_body: "PR creata automaticamente dopo push su script_ste"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Merge automatico della PR
-        if: steps.cpr.outputs.pr_number != ''
+      - name: Crea PR e merge su tbr_3
         run: |
-          gh pr merge ${{ steps.cpr.outputs.pr_number }} \
-            --merge \
-            --admin
+          PR_URL=$(gh pr create \
+            --base tbr_3 \
+            --head script_ste \
+            --title "Auto PR da script_ste" \
+            --body "PR creata automaticamente dopo push su script_ste")
+          echo "PR creata: $PR_URL"
+          gh pr merge $PR_URL --merge --admin
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
