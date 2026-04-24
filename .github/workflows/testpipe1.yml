@@ -6,6 +6,10 @@ on:
     branches:
       - clear-project
 
+permissions:
+  pull-requests: write
+  contents: read
+  
 jobs:
   create-pr:
     runs-on: ubuntu-latest
