@@ -29,6 +29,6 @@ jobs:
               repo: context.repo.repo,
               title: `Auto PR: Branch clear-project → no-projects`,
               head: 'clear-project',       
-              base: 'no-projects',  
+              base: 'clear-project2',  
               body: 'Automatically created PR from branch clear-project to no-projects'
             })
