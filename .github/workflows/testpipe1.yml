@@ -23,7 +23,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `Auto PR: Branch clear-project → no-projects`,
-              head: 'clear-project',        # source branch
-              base: 'no-projects',   # target branch  ← already set
+              head: 'clear-project',       
+              base: 'no-projects',  
               body: 'Automatically created PR from branch clear-project to no-projects'
             })
