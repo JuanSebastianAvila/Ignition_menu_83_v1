@@ -14,7 +14,7 @@ permissions:
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.ref == 'clear-project'
+    if: github.event.pull_request.head.ref == 'clear-project' && github.event.pull_request.base.ref == 'clear-project2'
     
     steps:
       - name: Checkout repository
@@ -80,8 +80,3 @@ jobs:
               repo: context.repo.repo,
               body: '❌ **Auto-merge failed**: This PR has merge conflicts. Please resolve them manually before merging.'
             })
-        
-
-      
-
-      
