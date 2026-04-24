@@ -28,7 +28,8 @@ jobs:
         id: check_source
         run: |
           SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
-          if [ "$SOURCE_BRANCH" == "clear-project" ]; then
+          
+          if [[ "$SOURCE_BRANCH" == "clear-project" || "$SOURCE_BRANCH" == "clear-project3" ]]; then
             echo "pr_from_a=true" >> $GITHUB_OUTPUT
           else
             echo "pr_from_a=false" >> $GITHUB_OUTPUT
