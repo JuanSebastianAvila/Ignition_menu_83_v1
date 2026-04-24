@@ -4,7 +4,7 @@ name: Auto PR and Merge
 on:
   push:
     branches:
-      - A
+      - clear-project
 
 jobs:
   create-pr:
