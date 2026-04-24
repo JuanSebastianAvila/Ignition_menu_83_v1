@@ -1,11 +1,11 @@
 
-name: Auto PR and Merge
+name: Accept PR and Merge
 
 on:
   pull_request:
     types: [opened, ready_for_review]
     branches:
-      - clear-project
+      - clear-project2
 
 permissions:
   pull-requests: write
