@@ -6,7 +6,9 @@ on:
     types: [opened, ready_for_review]
     branches:
       - clear-project2
-
+  
+  workflow_dispatch:
+  
 permissions:
   pull-requests: write
   contents: write
