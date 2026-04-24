@@ -1,12 +1,12 @@
 def a():
-	print 'hola'
+	print('hola')
 	
 def c(): 
 	x= 5
 	y = 8
-	print x+y
+	print(x+y)
 	
 
 def b():
-	print 'ciaoaaaa'
+	print('ciaoaaaa')
 	
