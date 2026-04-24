@@ -1,0 +1,29 @@
+name: Ignition Code Review
+
+on:
+  push:
+    branches:
+      - script_ste        # gira quando si pusha su questo branch
+      - tbr_3             # gira anche su tbr_3
+  pull_request:
+    branches:
+      - tbr_3             # gira quando arriva una PR verso tbr_3
+
+jobs:
+  lint-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - run: pip install ruff
+
+      - name: Controlla qualità e nomi
+        run: |
+          ruff check . \
+            --select E,F,N \
+            --ignore N802 \
+            --exclude ".github"
