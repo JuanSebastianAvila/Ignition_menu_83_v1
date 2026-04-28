@@ -1,5 +1,5 @@
 
-name: Accept PR and Merge test2
+name: Accept PR and Merge test2 NEW
 
 on:
   pull_request:
