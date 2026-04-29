@@ -5,7 +5,7 @@ on:
   pull_request:
     types: [opened, ready_for_review]
     branches:
-      - clear-project3
+      - clear-project2
   
   workflow_dispatch:
   
