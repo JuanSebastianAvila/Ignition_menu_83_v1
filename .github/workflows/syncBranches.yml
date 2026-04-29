@@ -1,0 +1,82 @@
+name: Sync Branches After Merge
+
+on:
+  push:
+    branches:
+      - clear-project2
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  sync:
+    if: "contains(github.event.head_commit.message, 'Merge')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.MY_TOKEN }}
+
+      - name: Determine source and target branch
+        id: determine_branches
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          if echo "$COMMIT_MSG" | grep -q "clear-project3"; then
+            echo "target=clear-project" >> $GITHUB_OUTPUT
+          elif echo "$COMMIT_MSG" | grep -q "clear-project"; then
+            echo "target=clear-project3" >> $GITHUB_OUTPUT
+          else
+            echo "target=none" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check for conflicts
+        if: steps.determine_branches.outputs.target != 'none'
+        id: check_conflicts
+        run: |
+          TARGET="${{ steps.determine_branches.outputs.target }}"
+          git fetch origin $TARGET
+          git checkout origin/$TARGET
+          if git merge --no-commit --no-ff origin/clear-project2; then
+            echo "has_conflicts=false" >> $GITHUB_OUTPUT
+            git merge --abort 2>/dev/null || true
+          else
+            echo "has_conflicts=true" >> $GITHUB_OUTPUT
+            git merge --abort 2>/dev/null || true
+          fi
+
+      - name: Sync without conflicts (fast-forward)
+        if: steps.determine_branches.outputs.target != 'none' && steps.check_conflicts.outputs.has_conflicts == 'false'
+        run: |
+          TARGET="${{ steps.determine_branches.outputs.target }}"
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git checkout $TARGET
+          git merge origin/clear-project2 --no-edit
+          git push origin $TARGET
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+      - name: Open PR if conflicts
+        if: steps.determine_branches.outputs.target != 'none' && steps.check_conflicts.outputs.has_conflicts == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            const target = "${{ steps.determine_branches.outputs.target }}";
+            const { data: pr } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Sync: clear-project2 → ${target} (conflitti)`,
+              head: 'clear-project2',
+              base: target,
+              body: '⚠️ **Sync automatico fallito**: conflitti rilevati. Risolvili manualmente.'
+            });
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: '⚠️ **Sync automatico fallito**: conflitti rilevati tra `clear-project2` e `' + target + '`. Risolvili manualmente prima del merge.'
+            });
