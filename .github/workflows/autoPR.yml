@@ -25,11 +25,11 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data: pr } = await github.rest.pulls.create({
+            head: 'clear-project',       
+            base: 'clear-project2', 
+            await github.rest.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              head: 'clear-project',       
-              base: 'clear-project2',  
               title: `Auto PR: Branch ${head} → ${base}`,
               body: 'Automatically created PR from branch ${head} to ${base}'
             })
