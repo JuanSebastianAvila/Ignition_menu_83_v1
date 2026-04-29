@@ -36,7 +36,11 @@ jobs:
         if: steps.determine_branches.outputs.target != 'none'
         id: check_conflicts
         run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          
           TARGET="${{ steps.determine_branches.outputs.target }}"
+          
           git fetch origin $TARGET
           git checkout origin/$TARGET
           if git merge --no-commit --no-ff origin/clear-project2; then
@@ -51,8 +55,10 @@ jobs:
         if: steps.determine_branches.outputs.target != 'none' && steps.check_conflicts.outputs.has_conflicts == 'false'
         run: |
           TARGET="${{ steps.determine_branches.outputs.target }}"
+          
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
+          
           git checkout $TARGET
           git merge origin/clear-project2 --no-edit
           git push origin $TARGET
