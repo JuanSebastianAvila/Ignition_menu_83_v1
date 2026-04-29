@@ -1,0 +1,35 @@
+
+name: PR Auto 2
+
+on:
+  push:
+    branches:
+      - clear-project3
+
+permissions:
+  pull-requests: write
+  contents: write
+  
+jobs:
+  create-pr:
+    if: "!contains(github.event.head_commit.message, 'Merge')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Pull Request
+        uses: actions/github-script@v7
+        with:
+          github_token: ${{ secrets.MY_TOKEN }}
+          script: |
+            const { data: pr } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Auto PR`,
+              head: 'clear-project3',       
+              base: 'clear-project2',  
+              body: 'Automatically created PR'
+            })
