@@ -40,6 +40,8 @@ jobs:
         if: steps.check_source.outputs.pr_from_a == 'true' 
         id: check_conflicts
         run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
           
           git checkout origin/${{ github.event.pull_request.base.ref }}
           
