@@ -17,7 +17,7 @@ jobs:
   auto-merge:
     runs-on: ubuntu-latest
     
-    if: github.event.pull_request.head.ref == 'clear-project3' || github.event.pull_request.head.ref == 'clear-project' 
+    if: github.event.pull_request.head.ref == 'clear-project' 
     
     steps:
       - name: Checkout repository
