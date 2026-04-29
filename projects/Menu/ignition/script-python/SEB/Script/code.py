@@ -6,3 +6,4 @@ def a():
 ## test 4
 ## test 5
 ## test sync branches 2
+## test sync branches from clear-project to clear-project3
