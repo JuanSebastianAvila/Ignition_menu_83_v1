@@ -1,9 +1,11 @@
 name: Sync Branches After Merge
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - clear-project2
+
 
 permissions:
   pull-requests: write
@@ -11,7 +13,7 @@ permissions:
 
 jobs:
   sync:
-    if: "contains(github.event.head_commit.message, 'Merge')"
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -23,10 +25,10 @@ jobs:
       - name: Determine source and target branch
         id: determine_branches
         run: |
-          COMMIT_MSG="${{ github.event.head_commit.message }}"
-          if echo "$COMMIT_MSG" | grep -q "clear-project3"; then
+          SOURCE="${{ github.event.pull_request.head.ref }}"
+          if echo "$SOURCE" | grep -q "clear-project3"; then
             echo "target=clear-project" >> $GITHUB_OUTPUT
-          elif echo "$COMMIT_MSG" | grep -q "clear-project"; then
+          elif echo "$SOURCE" | grep -q "clear-project"; then
             echo "target=clear-project3" >> $GITHUB_OUTPUT
           else
             echo "target=none" >> $GITHUB_OUTPUT
