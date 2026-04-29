@@ -3,7 +3,7 @@ name: Accept PR - Merge
 
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - clear-project2    
   
