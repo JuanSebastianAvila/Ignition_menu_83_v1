@@ -30,6 +30,6 @@ jobs:
             await github.rest.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Auto PR: Branch ${head} → ${base}`,
-              body: 'Automatically created PR from branch ${head} to ${base}'
+              title: `Auto PR: Branch hh → ${base}`,
+              body: 'Automatically created PR from branch hh to ${base}'
             })
