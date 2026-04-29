@@ -12,6 +12,7 @@ permissions:
   
 jobs:
   create-pr:
+    if: "!contains(github.event.head_commit.message, 'Merge')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,8 +28,8 @@ jobs:
             const { data: pr } = await github.rest.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Auto PR: Branch clear-project → no-projects`,
+              title: `Auto PR`,
               head: 'clear-project',       
               base: 'clear-project2',  
-              body: 'Automatically created PR from branch clear-project to no-projects'
+              body: 'Automatically created PR'
             })
