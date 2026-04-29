@@ -5,7 +5,4 @@ def a():
 ## test 3.1
 ## test 4
 ## test 5
-## test 6.2
-## test 7
-## test 8.1
-## test 9
+## test sync branches
